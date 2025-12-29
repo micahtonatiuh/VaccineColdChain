@@ -1,66 +1,65 @@
-## Foundry
+# VaccineColdChain - Hybrid Blockchain Architecture
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
+[![Tests](https://github.com/YOUR_USERNAME/VaccineColdChain/actions/workflows/ci.yml/badge.svg)](https://github.com/YOUR_USERNAME/VaccineColdChain/actions/workflows/ci.yml)
+[![Coverage](https://img.shields.io/badge/coverage-100%25-brightgreen.svg)](https://github.com/YOUR_USERNAME/VaccineColdChain)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-Foundry consists of:
+## Overview
 
-- **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
-- **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
-- **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
-- **Chisel**: Fast, utilitarian, and verbose solidity REPL.
+Hybrid blockchain system for vaccine cold chain traceability combining:
+- **Hyperledger Fabric** (private, high-frequency IoT data)
+- **Base L2** (public verification via Merkle proofs)
 
-## Documentation
-
-https://book.getfoundry.sh/
-
-## Usage
-
-### Build
-
-```shell
-$ forge build
+## Architecture
+```
+IoT Sensors → Fabric Network → Python Script → CustodyAnchor (L2)
+                (Private)         Batch          (Public Verify)
 ```
 
-### Test
+## Deployed Contracts
 
-```shell
-$ forge test
+| Network       | Address                                      | Explorer                                |
+|---------------|----------------------------------------------|-----------------------------------------|
+| Base Sepolia  | `0xAb3D18543f78c1e205aaAf55605A4279d5DF7c43` | [View](https://sepolia.basescan.org/address/0xAb3D18543f78c1e205aaAf55605A4279d5DF7c43) |
+
+## Quick Start
+```bash
+# Install dependencies
+forge install
+
+# Run tests
+forge test
+
+# Deploy to testnet
+forge script script/Deploy.s.sol:DeployScript \
+  --rpc-url https://sepolia.base.org \
+  --broadcast
 ```
 
-### Format
-
-```shell
-$ forge fmt
+## Test Coverage
+```
+Lines:      100.00% (23/23)
+Statements: 100.00% (20/20)
+Branches:   100.00% (4/4)
+Functions:  100.00% (7/7)
 ```
 
-### Gas Snapshots
+## Key Features
 
-```shell
-$ forge snapshot
-```
+- ✅ 100% test coverage
+- ✅ Fuzzing tests included
+- ✅ OpenZeppelin security standards
+- ✅ Gas-optimized (161k avg per batch anchor)
+- ✅ Event-driven architecture
+- ✅ Merkle proof verification
 
-### Anvil
+## Development
 
-```shell
-$ anvil
-```
+Built with:
+- Foundry (Solidity development framework)
+- OpenZeppelin Contracts
+- Base L2 (Ethereum Layer 2)
 
-### Deploy
+## License
 
-```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
-```
-
-### Cast
-
-```shell
-$ cast <subcommand>
-```
-
-### Help
-
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
-```
+MIT
