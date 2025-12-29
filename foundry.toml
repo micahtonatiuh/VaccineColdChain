@@ -5,3 +5,12 @@ libs = ["lib"]
 
 # See more config options https://github.com/foundry-rs/foundry/blob/master/crates/config/README.md#all-options
 remappings = ['@openzeppelin/=lib/openzeppelin-contracts/']
+
+# CI/CD settings
+[profile.ci]
+fuzz = { runs = 256 }
+verbosity = 4
+
+# Gas reports
+gas_reports = ["*"]
+gas_reports_ignore = []

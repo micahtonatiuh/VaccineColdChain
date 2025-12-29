@@ -1,0 +1,3 @@
+*.sol linguist-language=Solidity
+*.abi linguist-language=JSON
+*.json linguist-language=JSON

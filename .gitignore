@@ -13,3 +13,26 @@ docs/
 # Dotenv file
 .env
 .env
+# Foundry
+cache/
+out/
+broadcast/
+
+# Env
+.env
+.env.*
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Coverage
+lcov.info
+coverage/
